@@ -1,0 +1,4 @@
+ORG 00h
+	MOV P3,FFH
+END
+		
