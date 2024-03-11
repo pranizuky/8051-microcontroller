@@ -1,3 +1,5 @@
+//up counter,down counter and exponential counter via 7 segment display
+
 #include<reg51.h>
 
 sbit s1 = P1^0;
