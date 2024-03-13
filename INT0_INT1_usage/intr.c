@@ -1,20 +1,12 @@
 #include <reg51.h>
 
-sbit LED1 = P1^0;
-sbit LED2 = P1^1;
-
-// Function Declarations
-void port_init();
-void InitINT0();
-void InitINT1();
+sbit LED1 = P1^0, LED2 = P1^1;
 
 // Main Function
 void main()
 {
-    port_init();
     InitINT0();
-    InitINT1();
-    
+    InitINT1(); 
     while(1);
 }
 
@@ -28,10 +20,10 @@ void port_init()
 
 void InitINT0()  // INT0 ISR
 {
-    IT0 = 1;
-    EX0 = 1;
-    EA = 1;
-}
+    EA = 1;  /* Enable global interrupt */
+	EX0 = 1;      	/* Enable Ext. interrupt0 */
+	IT0 = 1;      	/* Select Ext. interrupt0 on falling edge */
+   }
 
 void InitINT1()  // INT1 ISR
 {
